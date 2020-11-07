@@ -1,0 +1,20 @@
+.post {
+  padding: 20px 20px 0;
+  max-width: 600px;
+  width: 100%;
+  &Title {
+    text-transform: uppercase;
+  }
+  &Add {
+    padding-top: 30px;
+    &Text {
+      width: 100%;
+      border: 1px solid #BFBFC2;
+      background: #E6E8ED;
+    }
+    &Submit {
+      margin-top: 20px;
+      float: right;
+    }
+  }
+}
