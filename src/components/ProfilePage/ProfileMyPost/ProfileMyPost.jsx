@@ -8,14 +8,17 @@ const ProfileMyPost = () => {
     {
       id: 1,
       user: 'Arthur',
-      message: 'I\'m a going learn React'
+      message: 'I\'m a going learn React',
+      likes: 12,
     },
     {
       id: 2,
-      user: 'John',
-      message: 'It\'s funny learn React'
+      user: 'Arthur',
+      message: 'It\'s funny learn React',
+      likes: 2,
     }
   ]
+
   return (
     posts.map((post) => {
       return <Post key={post.id} post={post} />
@@ -28,10 +31,11 @@ export default ProfileMyPost;
 const Post = ({post}) => {
   return (
     <div className={style.myPost}>
-      <img className={style.myPostImage} src={profileLogo} alt="logotype" />
+      <img className={style.miniImageProfile} src={profileLogo} alt="logotype" />
       <div className={style.myPostWrap}>
         <span className={style.myPostWrapUser}>{post.user}</span>
         <span className={style.myPostWrapDesc}>{post.message}</span>
+        <span className={style.myPostWrapLike}>like: {post.likes}</span>
       </div>
     </div>
   )

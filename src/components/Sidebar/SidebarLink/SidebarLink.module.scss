@@ -1,0 +1,18 @@
+.link {
+  text-transform: uppercase;
+  padding: 20px 30px;
+  display: block;
+  cursor: pointer;
+  color: #AAAAAD;
+  transition: .2s;
+  &:hover {
+    color: #5E6184;
+    transition: .2s;
+  }
+  &Active {
+    color: #5E6184;
+    transition: .2s;
+    background: #F7F8F9;
+    border-left: 4px solid #5E6184;
+  }
+}

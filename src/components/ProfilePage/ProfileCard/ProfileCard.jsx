@@ -5,12 +5,12 @@ import style from './ProfileCard.module.scss';
 const ProfileCard = () => {
   return (
     <div className={style.card}>
-      <img className={style.cardImage} src={profileLogo} alt=""/>
+      <img className={style.largeImageProfile} src={profileLogo} alt=""/>
       <div className={style.cardInfo}>
         <span className={style.cardInfoName}>Arthur</span>
-        <span className={style.cardInfoBirthday}>Date of birthday: 23 April 1997</span>
-        <span className={style.cardInfoCity}>City: Kazan</span>
-        <span className={style.cardInfoSite}>Web site: https://github.com/theyanniss23002/social-app</span>
+        <span className={style.cardInfoBirthday}><strong>Date of birthday:</strong> 23 April 1997</span>
+        <span className={style.cardInfoCity}><strong>City:</strong> Kazan</span>
+        <span className={style.cardInfoSite}><strong>Web site:</strong> https://github.com/theyanniss23002/social-app</span>
       </div>
     </div>
   );

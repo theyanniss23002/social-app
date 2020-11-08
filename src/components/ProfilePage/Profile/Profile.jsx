@@ -6,7 +6,7 @@ import ProfileMyPost from "../ProfileMyPost/ProfileMyPost";
 
 const Profile = () => {
   return (
-    <div className={style.profile}>
+    <div className={style.columnContent}>
       <ProfileCard/>
       <ProfileAddPost/>
       <ProfileMyPost/>

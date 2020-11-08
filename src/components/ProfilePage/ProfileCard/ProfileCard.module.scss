@@ -1,18 +1,30 @@
+@import '../../../App';
+
 .card {
   display: flex;
   height: fit-content;
   align-items: center;
-  &Image {
-    max-width: 75px;
-    width: 100%;
-    max-height: 75px;
-    background: #5E6184;
-    border-radius: 50%;
-  }
   &Info {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    &Name {
+      font-weight: bold;
+      font-size: 20px;
+      color: #5E6184;
+    }
+    &Birthday {
+      font-size: 16px;
+      color: #5E6184;
+    }
+    &City {
+      font-size: 16px;
+      color: #5E6184;
+    }
+    &Site {
+      font-size: 16px;
+      color: #5E6184;
+    }
     & > span {
       &:not(:first-child) {
         padding-top: 5px;

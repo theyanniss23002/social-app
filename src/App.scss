@@ -1,1 +1,32 @@
+.inlineContent {
+  width: 100%;
+  display: flex;
+  padding: 30px 45px 0;
+}
 
+.columnContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 45px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.miniImageProfile {
+  max-width: 50px;
+  width: 100%;
+  max-height: 50px;
+  background: #5E6184;
+  border-radius: 50%;
+}
+
+.largeImageProfile {
+  max-width: 75px;
+  width: 100%;
+  max-height: 75px;
+  background: #5E6184;
+  border-radius: 50%;
+}

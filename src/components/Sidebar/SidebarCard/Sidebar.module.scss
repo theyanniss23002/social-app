@@ -1,0 +1,14 @@
+@import '../../../App';
+
+.sidebar {
+  height: calc(100vh - 100px);
+  max-width: 300px;
+  width: 100%;
+  background: #F2F2F5;
+  box-shadow: inset -44px 0px 41px -48px rgba(191,191,194,1);
+  & nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
