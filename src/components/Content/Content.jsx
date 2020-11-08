@@ -1,9 +1,9 @@
 import React from 'react';
 import Sidebar from "../Sidebar/Sidebar";
-import Profile from "../Profile/Profile";
+import Profile from "../ProfilePage/Profile/Profile";
 import style from './Content.module.scss'
 
-function Content() {
+const Content = () => {
   return (
     <div className={style.content}>
       <Sidebar/>

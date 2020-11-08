@@ -1,8 +1,8 @@
 import React from 'react';
-import profileLogo from '../../assets/images/svg/profile-logo.svg'
+import profileLogo from '../../../assets/images/svg/profile-logo.svg'
 import style from './ProfileCard.module.scss';
 
-function ProfileCard() {
+const ProfileCard = () => {
   return (
     <div className={style.card}>
       <img className={style.cardImage} src={profileLogo} alt=""/>
