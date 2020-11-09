@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './DialogsListCard.module.scss';
+import {NavLink} from "react-router-dom";
 
 const DialogsListCard = () => {
 
@@ -28,13 +29,14 @@ const DialogsListCard = () => {
 export default DialogsListCard;
 
 const User = ({user}) => {
+  let path = '/dialogs/' + user.id
   return (
-    <div className={style.card}>
+    <NavLink to={path} className={style.card}>
       <img className={style.miniImageProfile} src={user.imgUser} alt=""/>
       <div className={style.cardWrap}>
         <span className={style.cardWrapUser}>{user.firstName} {user.lastName}</span>
         <span className={style.cardWrapOpen}>Open Dialog</span>
       </div>
-    </div>
+    </NavLink>
   )
 }

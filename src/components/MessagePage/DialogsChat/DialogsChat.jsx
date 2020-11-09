@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './DialogsChat.module.scss';
+import DialogsChatTicket from "../DialogsChatTicket/DialogsChatTicket";
 
 const DialogsChat = () => {
   return (
     <div className={style.chat}>
-      <span>Chat</span>
+      <DialogsChatTicket/>
     </div>
   )
 }

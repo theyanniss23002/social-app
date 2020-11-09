@@ -1,0 +1,40 @@
+@import '../../../App';
+
+.ticket {
+ display: flex;
+  align-items: flex-end;
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+  &Wrap {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    &Message {
+      display: flex;
+      flex-direction: column;
+      background: #C1EAF2;
+      padding: 20px;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 40px 25px 25px 0;
+      &User {
+        color: #5E6184;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      &Text {
+        color: #7F818E;
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+    &Date {
+      color: #5E6184;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+}
