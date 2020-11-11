@@ -2,10 +2,10 @@ import React from 'react';
 import style from './DialogsChat.module.scss';
 import DialogsChatTicket from "../DialogsChatTicket/DialogsChatTicket";
 
-const DialogsChat = () => {
+const DialogsChat = (props) => {
   return (
     <div className={style.chat}>
-      <DialogsChatTicket/>
+      <DialogsChatTicket state={props.state.messages}/>
     </div>
   )
 }

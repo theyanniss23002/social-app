@@ -4,12 +4,12 @@ import ProfileAddPost from "../ProfileAddPost/ProfileAddPost";
 import style from './Profile.module.scss';
 import ProfileMyPost from "../ProfileMyPost/ProfileMyPost";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={style.columnContent}>
       <ProfileCard/>
       <ProfileAddPost/>
-      <ProfileMyPost/>
+      <ProfileMyPost state={props.state.posts} />
     </div>
   );
 }

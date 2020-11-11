@@ -2,25 +2,9 @@ import React from 'react';
 import style from './ProfileMyPos.module.scss';
 import profileLogo from '../../../assets/images/svg/profile-logo.svg'
 
-const ProfileMyPost = () => {
-
-  const posts = [
-    {
-      id: 1,
-      user: 'Arthur',
-      message: 'I\'m a going learn React',
-      likes: 12,
-    },
-    {
-      id: 2,
-      user: 'Arthur',
-      message: 'It\'s funny learn React',
-      likes: 2,
-    }
-  ]
-
+const ProfileMyPost = (props) => {
   return (
-    posts.map((post) => {
+    props.state.map((post) => {
       return <Post key={post.id} post={post} />
     })
   )

@@ -3,11 +3,12 @@ import style from './Dialogs.module.scss';
 import DialogsList from "../DialogsList/DialogsList";
 import DialogsChat from "../DialogsChat/DialogsChat";
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+
   return (
     <div className={style.inlineContent}>
-      <DialogsChat/>
-      <DialogsList/>
+      <DialogsChat state={props.state}/>
+      <DialogsList state={props.state}/>
     </div>
   )
 }

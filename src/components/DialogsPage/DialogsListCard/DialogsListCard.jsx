@@ -2,26 +2,10 @@ import React from 'react';
 import style from './DialogsListCard.module.scss';
 import {NavLink} from "react-router-dom";
 
-const DialogsListCard = () => {
-
-  const cardUsers = [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Konor',
-      imgUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922686.svg'
-    },
-    {
-      id: 2,
-      firstName: 'Ben',
-      lastName: 'Afleck',
-      imgUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922627.svg'
-    },
-  ]
-
+const DialogsListCard = (props) => {
   return (
-    cardUsers.map((user) => {
-      return <User key={user.id} user={user}/>
+    props.state.map((user) => {
+      return <User key={user.id} user={user} />
     })
   )
 }

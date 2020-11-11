@@ -1,27 +1,9 @@
 import React from 'react';
 import style from './DialogsChatTicket.module.scss';
 
-const DialogsChatTicket = () => {
-
-  const messages = [
-    {
-      id: 1,
-      imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922686.svg',
-      firstName: 'John',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, dolorum.',
-      time: '10:30',
-    },
-    {
-      id: 2,
-      imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922627.svg',
-      firstName: 'Ben',
-      text: 'Lorem ipsum dolor sit amet',
-      time: '7:01',
-    },
-  ]
-
+const DialogsChatTicket = (props) => {
   return (
-    messages.map((message) => {
+    props.state.map((message) => {
       return <Message key={message.id} message={message}/>
     })
   )
