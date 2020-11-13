@@ -1,0 +1,17 @@
+.friends {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  &Wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &Title {
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #5E6184;
+    display: block;
+  }
+}

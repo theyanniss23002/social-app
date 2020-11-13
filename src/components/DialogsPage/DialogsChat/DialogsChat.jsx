@@ -6,6 +6,8 @@ const DialogsChat = (props) => {
   return (
     <div className={style.chat}>
       <DialogsChatTicket state={props.state.messages}/>
+      <input className={style.chatArea} type="text" placeholder="Write your message..."/>
+      <button className={style.chatSend}></button>
     </div>
   )
 }

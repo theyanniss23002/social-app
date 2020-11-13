@@ -1,11 +1,25 @@
 @import '../../../App';
 
 .card {
-  width: 100%;
   display: flex;
   align-items: center;
+  transition: .2s;
+  padding: 10px;
+  border-radius: 0 25px;
   &:not(:first-child) {
     margin-top: 15px;
+  }
+  &:hover {
+    transition: .2s;
+    background: rgba(94, 97, 132, 0.4);
+    & .cardWrapOpen {
+      transition: .2s;
+      color: #fff;
+    }
+    & .miniImageProfile {
+      transition: .2s;
+      opacity: 0.5;
+    }
   }
   &Wrap {
     display: flex;

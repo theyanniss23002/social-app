@@ -5,4 +5,50 @@
   background: #fff;
   border-radius: 4px;
   padding: 20px;
+  position: relative;
+  &Area {
+    position: absolute;
+    bottom: 0;
+    margin: 0 -20px;
+    height: 70px;
+    padding: 0 20px;
+    width: calc(100% - 40px);
+    border-top: 2px solid #F8F8FB;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: transparent;
+    &::placeholder {
+      font-weight: 500;
+      font-size: 15px;
+      color: #AAAAAD;
+    }
+    &[type="text"] {
+      color: #5E6184;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    &:focus {
+      outline: none;
+      outline-offset: 0;
+    }
+  }
+  &Send {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    &:after {
+      content: '';
+      width: 30px;
+      height: 30px;
+      display: block;
+      vertical-align: middle;
+      margin: auto;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('./../../../assets/images/svg/mail-send.svg');
+    }
+  }
 }

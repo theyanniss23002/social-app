@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../../assets/images/svg/facebook.svg";
+import logo from "../../assets/images/svg/logo.svg";
 import style from './Header.module.scss';
 
 function Header() {
