@@ -1,10 +1,12 @@
 import React from 'react';
 import style from './Button.module.scss'
 
-const Button = ({name}) => {
+const Button = ({name, handleClick}) => {
+
   return (
-    <button className={style.button}>{name}</button>
+    <button onClick={handleClick} className={style.button}>{name}</button>
   )
+
 }
 
 export default Button;

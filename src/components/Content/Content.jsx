@@ -9,7 +9,10 @@ const Content = (props) => {
   return (
       <div className={style.content}>
         <Sidebar state={props.state.sidebar}/>
-        <Route path='/profile' render={ () => <Profile state={props.state.profile} /> }/>
+        <Route path='/profile' render={ () => <Profile state={props.state.profile}
+                                                       addNewPost={props.addNewPost}
+                                                       changeItems={props.state.profile}
+                                                       listenNewChange={props.listenNewChange}/> }/>
         <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogs}/> }/>
       </div>
   );

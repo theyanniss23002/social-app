@@ -1,3 +1,5 @@
+import {reloadRender} from "./render";
+
 const state = {
   sidebar: {
     links: [
@@ -58,6 +60,7 @@ const state = {
         likes: 2,
       }
     ],
+    changeItems: 'Hello',
   },
   dialogs: {
     cardUsers: [
@@ -93,4 +96,27 @@ const state = {
   }
 }
 
+window.state = state;
+
+export let addNewPost = () => {
+  let newPost = {
+    id: 3,
+    user: 'Arthur',
+    message: state.profile.changeItems,
+    likes: 2,
+  };
+  state.profile.posts.push(newPost);
+  state.profile.changeItems = '';
+  reloadRender(state)
+}
+
+export let listenNewChange = (changeItem) => {
+  state.profile.changeItems = changeItem;
+  reloadRender(state)
+}
+
 export default state;
+
+// listenNewChange - updateNewPostText
+// changeItems - NewPostsText
+// changeItem - newText

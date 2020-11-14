@@ -2,13 +2,18 @@ import React from 'react';
 import style from './ProfileAddPost.module.scss';
 import Button from "../../SharedComponents/Button/Button";
 
-function ProfileAddPost() {
+function ProfileAddPost(props) {
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
+    props.addNewPost();
+  }
+
+  let postStateChange = () => {
     let item = newPostElement.current.value;
-    alert(item);
+    props.listenNewChange(item);
+    console.log(props.changeItems)
   }
 
   return (
@@ -17,13 +22,16 @@ function ProfileAddPost() {
       <div className={style.postAdd}>
         <textarea cols="49" rows="5" type="text"
                   className={style.postAddText}
-                  placeholder="What's do you mind?"
+                  // placeholder="What's do you mind?"
                   ref={newPostElement}
-        ></textarea>
-        <Button name="send" onClick={addPost} />
+                  onChange={postStateChange}
+                  value={props.changeItems}
+        />
+        <Button name="send" handleClick={addPost} />
       </div>
     </div>
   );
+
 }
 
 export default ProfileAddPost;

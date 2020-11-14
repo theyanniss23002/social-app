@@ -11,6 +11,7 @@ const Dialogs = (props) => {
       <DialogsList state={props.state}/>
     </div>
   )
+
 }
 
 export default Dialogs;

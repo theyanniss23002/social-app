@@ -9,7 +9,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="App">
         <Header/>
-        <Content state={props.state}/>
+        <Content state={props.state} addNewPost={props.addNewPost} listenNewChange={props.listenNewChange}/>
       </div>
     </BrowserRouter>
   );
