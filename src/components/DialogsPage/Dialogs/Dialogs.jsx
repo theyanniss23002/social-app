@@ -7,7 +7,11 @@ const Dialogs = (props) => {
 
   return (
     <div className={style.inlineContent}>
-      <DialogsChat state={props.state}/>
+      <DialogsChat state={props.state}
+                   sendNewMyMessage={props.sendNewMyMessage}
+                   listenNewMyMessage={props.listenNewMyMessage}
+                   myNewMessages={props.state.myNewMessages}
+      />
       <DialogsList state={props.state}/>
     </div>
   )

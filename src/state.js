@@ -1,4 +1,5 @@
-import {reloadRender} from "./render";
+let reloadRender = () => {
+}
 
 const state = {
   sidebar: {
@@ -60,7 +61,7 @@ const state = {
         likes: 2,
       }
     ],
-    changeItems: 'Hello',
+    changePostItems: '',
   },
   dialogs: {
     cardUsers: [
@@ -92,31 +93,86 @@ const state = {
         text: 'Lorem ipsum dolor sit amet',
         time: '7:01',
       },
-    ]
+      {
+        id: 3,
+        imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922627.svg',
+        firstName: 'Ben',
+        text: 'Lorem dolor sit amet, consectetur',
+        time: '9:20',
+      },
+      {
+        id: 4,
+        imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922627.svg',
+        firstName: 'Ben',
+        text: 'Lorem ipsum dolor sit amet',
+        time: '16:30',
+      },
+      {
+        id: 5,
+        imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922627.svg',
+        firstName: 'Ben',
+        text: 'Lorem ipsum dolor sit amet',
+        time: '19:48',
+      },
+    ],
+    myMessages: [
+      {
+        id: 1,
+        imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922506.svg',
+        firstName: 'Arthur',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, dolorum.',
+        time: 'Now',
+      }
+    ],
+    myNewMessages: '',
   }
 }
 
 window.state = state;
 
-export let addNewPost = () => {
+export const addNewPost = () => {
   let newPost = {
     id: 3,
     user: 'Arthur',
-    message: state.profile.changeItems,
+    message: state.profile.changePostItems,
     likes: 2,
   };
   state.profile.posts.push(newPost);
-  state.profile.changeItems = '';
+  state.profile.changePostItems = '';
   reloadRender(state)
 }
 
-export let listenNewChange = (changeItem) => {
-  state.profile.changeItems = changeItem;
+export const listenNewPostChange = (changeItem) => {
+  state.profile.changePostItems = changeItem;
   reloadRender(state)
+}
+
+export const sendNewMyMessage = () => {
+  let addNewMyMessage = {
+    id: 2,
+    imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922506.svg',
+    firstName: 'Arthur',
+    text: state.dialogs.myNewMessages,
+    time: 'Now',
+  };
+  state.dialogs.myMessages.push(addNewMyMessage);
+  state.dialogs.myNewMessages = '';
+  reloadRender(state);
+  setTimeout(updateScroll, 0);
+}
+
+export const listenNewMyMessage = (changeMyMessage) => {
+  state.dialogs.myNewMessages = changeMyMessage;
+  reloadRender(state);
+};
+
+let updateScroll = () => {
+  let element = document.getElementById("upScroll");
+  element.scrollTop = element.scrollHeight;
+}
+
+export const subscribe = (observer) => {
+  reloadRender = observer;
 }
 
 export default state;
-
-// listenNewChange - updateNewPostText
-// changeItems - NewPostsText
-// changeItem - newText

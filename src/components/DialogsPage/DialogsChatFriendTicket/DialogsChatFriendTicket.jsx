@@ -1,18 +1,19 @@
 import React from 'react';
-import style from './DialogsChatTicket.module.scss';
+import style from './DialogsChatFriendTicket.module.scss';
 
-const DialogsChatTicket = (props) => {
+const DialogsChatFriendTicket = (props) => {
+
   return (
     props.state.map((message) => {
-      return <Message key={message.id} message={message}/>
+      return <FriendMessage key={message.id} message={message}/>
     })
   )
 
 }
 
-export default DialogsChatTicket;
+export default DialogsChatFriendTicket;
 
-const Message = ({message}) => {
+const FriendMessage = ({message}) => {
   return (
     <div className={style.ticket}>
       <img className={style.miniImageProfile} src={message.imageUser} alt="imageProfile"/>

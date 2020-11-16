@@ -4,51 +4,60 @@
   width: 100%;
   background: #fff;
   border-radius: 4px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   position: relative;
-  &Area {
-    position: absolute;
-    bottom: 0;
-    margin: 0 -20px;
-    height: 70px;
-    padding: 0 20px;
-    width: calc(100% - 40px);
-    border-top: 2px solid #F8F8FB;
-    border-left: transparent;
-    border-right: transparent;
-    border-bottom: transparent;
-    &::placeholder {
-      font-weight: 500;
-      font-size: 15px;
-      color: #AAAAAD;
-    }
-    &[type="text"] {
-      color: #5E6184;
-      font-size: 15px;
-      font-weight: bold;
-    }
-    &:focus {
-      outline: none;
-      outline-offset: 0;
-    }
+  &Wrap {
+    max-height: calc(100vh - 220px);
+    overflow: auto;
   }
-  &Send {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-    &:after {
-      content: '';
-      width: 30px;
-      height: 30px;
-      display: block;
-      vertical-align: middle;
-      margin: auto;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url('./../../../assets/images/svg/mail-send.svg');
+  &Write {
+    position: relative;
+    height: 72px;
+    border-top: 1px solid rgba(170, 170, 173, 0.4);
+    background: #F2F2F5;
+    margin: 0 -20px;
+    &Input {
+      position: absolute;
+      padding: 0 20px;
+      height: 50px;
+      margin: 10px 0;
+      left: 60px;
+      border-radius: 0 25px;
+      width: calc(100% - 170px);
+      border: 1px solid rgba(170, 170, 173, 0.4);
+      &::placeholder {
+        font-weight: 500;
+        font-size: 15px;
+        color: #AAAAAD;
+      }
+      &[type="text"] {
+        color: #5E6184;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      &:focus {
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+    &Send {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      &:after {
+        content: '';
+        width: 30px;
+        height: 30px;
+        display: block;
+        vertical-align: middle;
+        margin: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('./../../../assets/images/svg/mail-send.svg');
+      }
     }
   }
 }

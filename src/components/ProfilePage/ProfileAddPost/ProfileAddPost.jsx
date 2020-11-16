@@ -12,8 +12,7 @@ function ProfileAddPost(props) {
 
   let postStateChange = () => {
     let item = newPostElement.current.value;
-    props.listenNewChange(item);
-    console.log(props.changeItems)
+    props.listenNewPostChange(item);
   }
 
   return (
@@ -22,10 +21,10 @@ function ProfileAddPost(props) {
       <div className={style.postAdd}>
         <textarea cols="49" rows="5" type="text"
                   className={style.postAddText}
-                  // placeholder="What's do you mind?"
+                  placeholder="What's do you mind?"
                   ref={newPostElement}
                   onChange={postStateChange}
-                  value={props.changeItems}
+                  value={props.changePostItems}
         />
         <Button name="send" handleClick={addPost} />
       </div>
