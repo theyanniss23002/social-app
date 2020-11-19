@@ -18,7 +18,8 @@ const Content = (props) => {
                                                        sendNewMyMessage={props.sendNewMyMessage}
                                                        listenNewMyMessage={props.listenNewMyMessage}
                                                        myNewMessages={props.state.dialogs}/> }/>
-       <Route path='/diagram' render={ () =>  <Diagram getDataDiagram={props.getDataDiagram} /> }/>
+       <Route path='/diagram' render={ () =>  <Diagram getDataDiagram={props.getDataDiagram}
+       /> }/>
       </div>
   );
 }

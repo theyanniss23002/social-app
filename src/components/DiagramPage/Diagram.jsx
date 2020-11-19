@@ -9,7 +9,7 @@ class Diagram extends React.Component{
     this.myCarottage = React.createRef();
     this.data = (this.props.getDataDiagram())
     this.dataset = (this.data || []).map( (item) => {
-      return item.dimensionLeft
+      return this.data
     } )
   }
 
@@ -35,7 +35,6 @@ class Diagram extends React.Component{
       .attr('width', rect_width)
       .attr('height', d => d)
       .attr('fill', 'orange')
-    // console.log(this.dataset)
   }
 
   render() {

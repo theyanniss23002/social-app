@@ -181,21 +181,10 @@ export const subscribe = (observer) => {
   reloadRender = observer;
 }
 
-// export const getDataDiagram = () => {
-//   const URL_DATA = 'data.json';
-//   d3.json(`${process.env.PUBLIC_URL + URL_DATA}`, function(data) {
-//     console.log(data)
-//   });
-// }
-
 export function getDataDiagram() {
   const URL_DATA = 'data.json';
   d3.json(`${process.env.PUBLIC_URL + URL_DATA}`).then(function(data) {
-    // data.forEach(function(item) {
-    //   return item
-    // });
-    // console.log(data)
-    return data
+    console.log(data)
   });
 }
 
