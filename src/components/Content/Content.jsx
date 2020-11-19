@@ -4,6 +4,7 @@ import Profile from "../ProfilePage/Profile/Profile";
 import Dialogs from "../DialogsPage/Dialogs/Dialogs";
 import style from './Content.module.scss'
 import {Route} from "react-router-dom";
+import Diagram from "../DiagramPage/Diagram";
 
 const Content = (props) => {
   return (
@@ -17,6 +18,7 @@ const Content = (props) => {
                                                        sendNewMyMessage={props.sendNewMyMessage}
                                                        listenNewMyMessage={props.listenNewMyMessage}
                                                        myNewMessages={props.state.dialogs}/> }/>
+       <Route path='/diagram' render={ () =>  <Diagram getDataDiagram={props.getDataDiagram} /> }/>
       </div>
   );
 }

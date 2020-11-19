@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import {
   addNewPost, listenNewPostChange,
-  sendNewMyMessage, listenNewMyMessage,
+  sendNewMyMessage, listenNewMyMessage, getDataDiagram
 
 } from "./state";
 
@@ -16,6 +16,7 @@ export let reloadRender = (state) => {
       <App state={state}
            addNewPost={addNewPost} listenNewPostChange={listenNewPostChange}
            sendNewMyMessage={sendNewMyMessage} listenNewMyMessage={listenNewMyMessage}
+           getDataDiagram={getDataDiagram}
       />
     </React.StrictMode>,
     document.getElementById('root')

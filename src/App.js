@@ -12,6 +12,7 @@ const App = (props) => {
         <Content state={props.state}
                  addNewPost={props.addNewPost} listenNewPostChange={props.listenNewPostChange}
                  sendNewMyMessage={props.sendNewMyMessage} listenNewMyMessage={props.listenNewMyMessage}
+                 getDataDiagram={props.getDataDiagram}
         />
       </div>
     </BrowserRouter>

@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "dimensionLeft": "4",
+    "speed": "AL",
+    "soundMeasurements": "dB/m",
+    "dimensionRight": "38"
+  },
+  {
+    "id": 2,
+    "dimensionLeft": "3",
+    "speed": "GR_C",
+    "soundMeasurements": "uR/H",
+    "dimensionRight": "17"
+  },
+  {
+    "id": 3,
+    "dimensionLeft": "162340",
+    "speed": "TOL",
+    "soundMeasurements": "cpm",
+    "dimensionRight": "557187"
+  },
+  {
+    "id": 4,
+    "dimensionLeft": "180",
+    "speed": "DT",
+    "soundMeasurements": "us/m",
+    "dimensionRight": "800"
+  }
+]
+

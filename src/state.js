@@ -1,3 +1,5 @@
+import * as d3 from "d3";
+
 let reloadRender = () => {
 }
 
@@ -23,6 +25,10 @@ const state = {
       {
         name: 'Settings',
         path: '/settings',
+      },
+      {
+        name: 'Diagram for Etton',
+        path: '/diagram'
       }
     ],
     friends: [
@@ -173,6 +179,24 @@ let updateScroll = () => {
 
 export const subscribe = (observer) => {
   reloadRender = observer;
+}
+
+// export const getDataDiagram = () => {
+//   const URL_DATA = 'data.json';
+//   d3.json(`${process.env.PUBLIC_URL + URL_DATA}`, function(data) {
+//     console.log(data)
+//   });
+// }
+
+export function getDataDiagram() {
+  const URL_DATA = 'data.json';
+  d3.json(`${process.env.PUBLIC_URL + URL_DATA}`).then(function(data) {
+    // data.forEach(function(item) {
+    //   return item
+    // });
+    // console.log(data)
+    return data
+  });
 }
 
 export default state;
