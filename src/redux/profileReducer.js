@@ -1,7 +1,25 @@
 const ADD_POST = 'ADD_POST';
 const LISTEN_NEW_POST_CHANGE = 'LISTEN_NEW_POST_CHANGE';
 
-const profileReducer = (state, action) => {
+let initialState = {
+  posts:  [
+    {
+      id: 1,
+      user: 'Arthur',
+      message: 'I\'m a going learn React',
+      likes: 12,
+    },
+    {
+      id: 2,
+      user: 'Arthur',
+      message: 'It\'s funny learn React',
+      likes: 2,
+    }
+  ],
+  changePostItems: '',
+}
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
