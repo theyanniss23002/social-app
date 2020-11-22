@@ -8,10 +8,7 @@ const Profile = (props) => {
   return (
     <div className={style.columnContent}>
       <ProfileCard/>
-      <ProfileAddPost changePostItems={props.state.changePostItems}
-                      addNewPost={props.addNewPost}
-                      listenNewPostChange={props.listenNewPostChange}
-      />
+      <ProfileAddPost changePostItems={props.state.changePostItems} dispatch={props.dispatch}/>
       <ProfileMyPost state={props.state.posts} />
     </div>
   );

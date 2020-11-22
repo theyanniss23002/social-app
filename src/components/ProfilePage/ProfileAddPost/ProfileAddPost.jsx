@@ -1,18 +1,19 @@
 import React from 'react';
 import style from './ProfileAddPost.module.scss';
 import Button from "../../SharedComponents/Button/Button";
+import {addPostActionCreator, listenNewPostChangeActionCreator} from "../../../store";
 
 function ProfileAddPost(props) {
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.addNewPost();
+    props.dispatch(addPostActionCreator())
   }
 
   let postStateChange = () => {
     let item = newPostElement.current.value;
-    props.listenNewPostChange(item);
+    props.dispatch(listenNewPostChangeActionCreator(item))
   }
 
   return (

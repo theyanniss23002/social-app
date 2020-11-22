@@ -2,18 +2,19 @@ import React from 'react';
 import style from './DialogsChat.module.scss';
 import DialogsChatFriendTicket from '../DialogsChatFriendTicket/DialogsChatFriendTicket'
 import DialogsChatMyTicket from "../DialogsChatMyTicket/DialogsChatMyTicket";
+import {sendMyMessageActionCreator, listenNewMyMessageActionCreator} from "../../../store";
 
 const DialogsChat = (props) => {
 
   let newMyMessageItem = React.createRef();
 
   let sendMyMessage = () => {
-    props.sendNewMyMessage();
+    props.dispatch(sendMyMessageActionCreator())
   }
 
   let myMessageStateChange = () => {
-    let item = newMyMessageItem.current.value;
-    props.listenNewMyMessage(item);
+    let changeMyMessage = newMyMessageItem.current.value;
+    props.dispatch(listenNewMyMessageActionCreator(changeMyMessage))
   }
 
   return (
@@ -21,8 +22,6 @@ const DialogsChat = (props) => {
       <div id="upScroll" className={style.chatWrap}>
         <DialogsChatFriendTicket state={props.state.messages}/>
         <DialogsChatMyTicket state={props.state.myMessages}
-                             sendNewMyMessage={props.sendNewMyMessage}
-                             listenNewMyMessage={props.listenNewMyMessage}
         />
       </div>
       <div className={style.chatWrite}>
