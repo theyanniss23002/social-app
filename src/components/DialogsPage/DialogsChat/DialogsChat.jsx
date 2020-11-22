@@ -2,7 +2,7 @@ import React from 'react';
 import style from './DialogsChat.module.scss';
 import DialogsChatFriendTicket from '../DialogsChatFriendTicket/DialogsChatFriendTicket'
 import DialogsChatMyTicket from "../DialogsChatMyTicket/DialogsChatMyTicket";
-import {sendMyMessageActionCreator, listenNewMyMessageActionCreator} from "../../../store";
+import {sendMyMessageActionCreator, listenNewMyMessageActionCreator} from "../../../redux/dialogsReducer";
 
 const DialogsChat = (props) => {
 
@@ -13,8 +13,8 @@ const DialogsChat = (props) => {
   }
 
   let myMessageStateChange = () => {
-    let changeMyMessage = newMyMessageItem.current.value;
-    props.dispatch(listenNewMyMessageActionCreator(changeMyMessage))
+    let newMessage = newMyMessageItem.current.value;
+    props.dispatch(listenNewMyMessageActionCreator(newMessage))
   }
 
   return (

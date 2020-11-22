@@ -1,33 +1,6 @@
-const ADD_POST = 'ADD_POST';
-const LISTEN_NEW_POST_CHANGE = 'LISTEN_NEW_POST_CHANGE';
-const SEND_NEW_MY_MESSAGE = 'SEND_NEW_MY_MESSAGE';
-const LISTEN_NEW_MY_MESSAGE = 'LISTEN_NEW_MY_MESSAGE';
-
-export const addPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  }
-}
-
-export const listenNewPostChangeActionCreator = (changeItem) => {
-  return {
-    type: LISTEN_NEW_POST_CHANGE,
-    item: changeItem,
-  }
-}
-
-export const sendMyMessageActionCreator = () => {
-  return {
-    type: SEND_NEW_MY_MESSAGE,
-  }
-}
-
-export const listenNewMyMessageActionCreator = (changeMyMessage) => {
-  return {
-    type: LISTEN_NEW_MY_MESSAGE,
-    changeMyMessage: changeMyMessage,
-  }
-}
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
   _state: {
@@ -158,7 +131,7 @@ let store = {
   },
   _reloadRender() {
   },
-  _updateScroll () {
+  updateScroll () {
     let element = document.getElementById("upScroll");
     element.scrollTop = element.scrollHeight;
   },
@@ -169,46 +142,13 @@ let store = {
     return this._state
   },
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        let newPost = {
-          id: 3,
-          user: 'Arthur',
-          message: this._state.profile.changePostItems,
-          likes: 2,
-        };
-        this._state.profile.posts.push(newPost);
-        this._state.profile.changePostItems = '';
-        this._reloadRender(this._state)
-        break
-      case LISTEN_NEW_POST_CHANGE:
-        this._state.profile.changePostItems = action.item;
-        this._reloadRender(this._state)
-        break
-      case SEND_NEW_MY_MESSAGE:
-        let addNewMyMessage = {
-          id: 2,
-          imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922506.svg',
-          firstName: 'Arthur',
-          text: this._state.dialogs.myNewMessages,
-          time: 'Now',
-        };
-        this._state.dialogs.myMessages.push(addNewMyMessage);
-        this._state.dialogs.myNewMessages = '';
-        this._reloadRender(this._state);
-        setTimeout(this._updateScroll, 0);
-        break
-      case LISTEN_NEW_MY_MESSAGE:
-        this._state.dialogs.myNewMessages = action.changeMyMessage;
-        this._reloadRender(this._state);
-        break
-      default:
-        console.log('Failed')
-        break;
-    }
+    this._state.profile = profileReducer(this._state.profile, action)
+    this._state.dialogs = dialogsReducer(this._state.dialogs, action)
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+
+    this._reloadRender(this._state)
   }
 }
 
 window.store = store;
-
 export default store;

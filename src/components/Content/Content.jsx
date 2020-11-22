@@ -10,7 +10,7 @@ const Content = (props) => {
       <div className={style.content}>
         <Sidebar state={props.state.sidebar}/>
         <Route path='/profile' render={ () => <Profile state={props.state.profile} dispatch={props.dispatch} /> }/>
-        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogs} dispatch={props.dispatch} /> }/>
+        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogs} dispatch={props.dispatch}/> }/>
       </div>
   );
 }

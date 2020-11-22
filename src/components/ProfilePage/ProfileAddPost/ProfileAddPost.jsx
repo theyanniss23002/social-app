@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './ProfileAddPost.module.scss';
 import Button from "../../SharedComponents/Button/Button";
-import {addPostActionCreator, listenNewPostChangeActionCreator} from "../../../store";
+import {addPostActionCreator, listenNewPostChangeActionCreator} from "../../../redux/profileReducer";
 
 function ProfileAddPost(props) {
 
@@ -12,8 +12,8 @@ function ProfileAddPost(props) {
   }
 
   let postStateChange = () => {
-    let item = newPostElement.current.value;
-    props.dispatch(listenNewPostChangeActionCreator(item))
+    let newPost = newPostElement.current.value;
+    props.dispatch(listenNewPostChangeActionCreator(newPost))
   }
 
   return (
