@@ -83,7 +83,6 @@ const dialogsReducer = (state = initialState, action) => {
       state.myNewMessages = action.newMessage;
       return state;
     default:
-      console.log('Failed dialogsReducer')
       return state;
   }
 }

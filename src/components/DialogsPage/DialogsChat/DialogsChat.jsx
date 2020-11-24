@@ -2,19 +2,18 @@ import React from 'react';
 import style from './DialogsChat.module.scss';
 import DialogsChatFriendTicket from '../DialogsChatFriendTicket/DialogsChatFriendTicket'
 import DialogsChatMyTicket from "../DialogsChatMyTicket/DialogsChatMyTicket";
-import {sendMyMessageActionCreator, listenNewMyMessageActionCreator} from "../../../redux/dialogsReducer";
 
 const DialogsChat = (props) => {
 
   let newMyMessageItem = React.createRef();
 
-  let sendMyMessage = () => {
-    props.dispatch(sendMyMessageActionCreator())
+  let onSendMyMessage = () => {
+    props.sendMyMessage();
   }
 
-  let myMessageStateChange = () => {
+  let onMyMessageStateChange = () => {
     let newMessage = newMyMessageItem.current.value;
-    props.dispatch(listenNewMyMessageActionCreator(newMessage))
+    props.myMessageStateChange(newMessage);
   }
 
   return (
@@ -28,10 +27,10 @@ const DialogsChat = (props) => {
         <input className={style.chatWriteInput}
                type="text" placeholder="Write your message..."
                ref={newMyMessageItem}
-               onChange={myMessageStateChange}
+               onChange={onMyMessageStateChange}
                value={props.myNewMessages}
         />
-        <button className={style.chatWriteSend} onClick={sendMyMessage} ></button>
+        <button className={style.chatWriteSend} onClick={onSendMyMessage} ></button>
       </div>
     </div>
   )

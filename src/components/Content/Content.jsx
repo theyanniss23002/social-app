@@ -6,11 +6,14 @@ import style from './Content.module.scss'
 import {Route} from "react-router-dom";
 
 const Content = (props) => {
+
+  let state = props.store.getState();
+
   return (
       <div className={style.content}>
-        <Sidebar state={props.state.sidebar}/>
-        <Route path='/profile' render={ () => <Profile state={props.state.profile} dispatch={props.dispatch} /> }/>
-        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogs} dispatch={props.dispatch}/> }/>
+        <Sidebar state={state.sidebar} />
+        <Route path='/profile' render={ () => <Profile store={props.store} /> }/>
+        <Route path='/dialogs' render={ () => <Dialogs store={props.store} /> }/>
       </div>
   );
 }

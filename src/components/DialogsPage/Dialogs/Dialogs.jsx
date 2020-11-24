@@ -1,17 +1,16 @@
 import React from 'react';
 import style from './Dialogs.module.scss';
 import DialogsList from "../DialogsList/DialogsList";
-import DialogsChat from "../DialogsChat/DialogsChat";
+import DialogsChatContainer from "../DialogsChat/DialogsChatContainer/DialogsChatContainer";
 
 const Dialogs = (props) => {
 
+  let state = props.store.getState();
+
   return (
     <div className={style.inlineContent}>
-      <DialogsChat state={props.state}
-                   dispatch={props.dispatch}
-                   myNewMessages={props.state.myNewMessages}
-      />
-      <DialogsList state={props.state}/>
+      <DialogsChatContainer store={props.store} />
+      <DialogsList state={state.dialogs}/>
     </div>
   )
 

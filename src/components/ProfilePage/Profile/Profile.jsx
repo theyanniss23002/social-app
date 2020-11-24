@@ -1,15 +1,18 @@
 import React from 'react';
 import ProfileCard from "../ProfileCard/ProfileCard";
-import ProfileAddPost from "../ProfileAddPost/ProfileAddPost";
 import style from './Profile.module.scss';
 import ProfileMyPost from "../ProfileMyPost/ProfileMyPost";
+import ProfileAddPostContainer from "../ProfileAddPost/ProfileAddPostContainer/ProfileAddPostContainer";
 
 const Profile = (props) => {
+
+  let state = props.store.getState();
+
   return (
     <div className={style.columnContent}>
       <ProfileCard/>
-      <ProfileAddPost changePostItems={props.state.changePostItems} dispatch={props.dispatch}/>
-      <ProfileMyPost state={props.state.posts} />
+      <ProfileAddPostContainer store={props.store} />
+      <ProfileMyPost state={state.profile.posts} />
     </div>
   );
 }

@@ -1,19 +1,18 @@
 import React from 'react';
 import style from './ProfileAddPost.module.scss';
 import Button from "../../SharedComponents/Button/Button";
-import {addPostActionCreator, listenNewPostChangeActionCreator} from "../../../redux/profileReducer";
 
 function ProfileAddPost(props) {
 
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator())
+  let onAddPost = () => {
+    props.addPost();
   }
 
-  let postStateChange = () => {
+  let onPostStateChange = () => {
     let newPost = newPostElement.current.value;
-    props.dispatch(listenNewPostChangeActionCreator(newPost))
+    props.postStateChange(newPost)
   }
 
   return (
@@ -24,10 +23,10 @@ function ProfileAddPost(props) {
                   className={style.postAddText}
                   placeholder="What's do you mind?"
                   ref={newPostElement}
-                  onChange={postStateChange}
+                  onChange={onPostStateChange}
                   value={props.changePostItems}
         />
-        <Button name="send" handleClick={addPost} />
+        <Button name="send" handleClick={onAddPost} />
       </div>
     </div>
   );

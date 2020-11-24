@@ -35,7 +35,6 @@ const profileReducer = (state = initialState, action) => {
       state.changePostItems = action.newPost;
       return state;
     default:
-      console.log('Failed profileReducer')
       return state;
   }
 }
