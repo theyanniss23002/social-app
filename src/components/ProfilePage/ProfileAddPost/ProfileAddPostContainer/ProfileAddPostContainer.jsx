@@ -4,7 +4,7 @@ import ProfileAddPost from "../ProfileAddPost";
 
 function ProfileAddPostContainer(props) {
 
-  let state = props.store.getState();
+  let state = props.store.getState().profile;
 
   let addPost = () => {
     props.store.dispatch(addPostActionCreator())
@@ -17,8 +17,8 @@ function ProfileAddPostContainer(props) {
   return (
     <ProfileAddPost postStateChange={postStateChange}
                     addPost={addPost}
-                    state={state.profile}
-                    changePostItems={state.profile.changePostItems}
+                    state={state}
+                    changePostItems={state.changePostItems}
     />
   );
 

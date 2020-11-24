@@ -6,7 +6,7 @@ import {sendMyMessageActionCreator,
 
 const DialogsChatContainer = (props) => {
 
-  let state = props.store.getState();
+  let state = props.store.getState().dialogs;
 
   let sendMyMessage = () => {
     props.store.dispatch(sendMyMessageActionCreator())
@@ -18,8 +18,8 @@ const DialogsChatContainer = (props) => {
   }
 
   return (
-    <DialogsChat state={state.dialogs}
-                 myNewMessages={state.dialogs.myNewMessages}
+    <DialogsChat dialogs={state}
+                 myNewMessages={state.myNewMessages}
                  sendMyMessage={sendMyMessage}
                  myMessageStateChange={myMessageStateChange}
 

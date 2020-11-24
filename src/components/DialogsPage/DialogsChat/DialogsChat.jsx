@@ -5,6 +5,8 @@ import DialogsChatMyTicket from "../DialogsChatMyTicket/DialogsChatMyTicket";
 
 const DialogsChat = (props) => {
 
+  let state = props.dialogs;
+
   let newMyMessageItem = React.createRef();
 
   let onSendMyMessage = () => {
@@ -19,8 +21,8 @@ const DialogsChat = (props) => {
   return (
     <div className={style.chat}>
       <div id="upScroll" className={style.chatWrap}>
-        <DialogsChatFriendTicket state={props.state.messages}/>
-        <DialogsChatMyTicket state={props.state.myMessages}
+        <DialogsChatFriendTicket state={state.messages}/>
+        <DialogsChatMyTicket state={state.myMessages}
         />
       </div>
       <div className={style.chatWrite}>
