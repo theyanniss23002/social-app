@@ -2,6 +2,7 @@ import React from 'react';
 import style from './SidebarFriendsTicket.module.scss'
 
 const SidebarFriendsTicket = (props) => {
+
   return (
     props.state.map( item => <Friend key={item.id} item={item} /> )
   )

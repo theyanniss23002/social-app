@@ -75,13 +75,17 @@ const dialogsReducer = (state = initialState, action) => {
         text: state.myNewMessages,
         time: 'Now',
       };
-      state.myMessages.push(addNewMyMessage);
-      state.myNewMessages = '';
+      let copyState = {...state};
+      copyState.myMessages = [...state.myMessages];
+      copyState.myMessages.push(addNewMyMessage);
+      copyState.myNewMessages = '';
       setTimeout(state.updateScroll, 0);
-      return state;
-    case LISTEN_NEW_MY_MESSAGE:
-      state.myNewMessages = action.newMessage;
-      return state;
+      return copyState;
+    case LISTEN_NEW_MY_MESSAGE: {
+      let copyState = {...state};
+      copyState.myNewMessages = action.newMessage;
+      return copyState;
+    }
     default:
       return state;
   }

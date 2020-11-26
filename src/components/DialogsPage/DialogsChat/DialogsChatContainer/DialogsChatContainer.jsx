@@ -1,30 +1,27 @@
-import React from 'react';
+import {connect} from "react-redux"
 import DialogsChat from "../DialogsChat";
 import {sendMyMessageActionCreator,
   listenNewMyMessageActionCreator}
   from "../../../../redux/dialogsReducer";
 
-const DialogsChatContainer = (props) => {
-
-  let state = props.store.getState().dialogs;
-
-  let sendMyMessage = () => {
-    props.store.dispatch(sendMyMessageActionCreator())
+let mapStateToProps = (state) => {
+  return {
+    dialogs: state.dialogs,
+    myNewMessages: state.dialogs.myNewMessages,
   }
-
-  let myMessageStateChange = (newMessage) => {
-    // let newMessage = newMyMessageItem.current.value;
-    props.store.dispatch(listenNewMyMessageActionCreator(newMessage))
-  }
-
-  return (
-    <DialogsChat dialogs={state}
-                 myNewMessages={state.myNewMessages}
-                 sendMyMessage={sendMyMessage}
-                 myMessageStateChange={myMessageStateChange}
-
-    />
-  )
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    sendMyMessage: () => {
+      dispatch(sendMyMessageActionCreator())
+    },
+    myMessageStateChange: (newMessage) => {
+      dispatch(listenNewMyMessageActionCreator(newMessage))
+    }
+  }
+}
+
+const DialogsChatContainer = connect(mapStateToProps, mapDispatchToProps)(DialogsChat);
 
 export default DialogsChatContainer;

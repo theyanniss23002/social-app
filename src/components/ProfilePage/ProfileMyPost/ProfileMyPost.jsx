@@ -5,7 +5,7 @@ import profileLogo from '../../../assets/images/svg/profile-logo.svg'
 const ProfileMyPost = (props) => {
 
   return (
-    props.state.map((post) => {
+    props.profile.posts.map((post) => {
       return <Post key={post.id} post={post} />
     })
   )
