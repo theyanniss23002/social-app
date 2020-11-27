@@ -68,24 +68,26 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_NEW_MY_MESSAGE:
-      let addNewMyMessage = {
-        id: 2,
-        imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922506.svg',
-        firstName: 'Arthur',
-        text: state.myNewMessages,
-        time: 'Now',
-      };
-      let copyState = {...state};
-      copyState.myMessages = [...state.myMessages];
-      copyState.myMessages.push(addNewMyMessage);
-      copyState.myNewMessages = '';
-      setTimeout(state.updateScroll, 0);
-      return copyState;
-    case LISTEN_NEW_MY_MESSAGE: {
-      let copyState = {...state};
-      copyState.myNewMessages = action.newMessage;
-      return copyState;
-    }
+      return {
+        ...state,
+        myNewMessages: '',
+        myMessages: [
+          ...state.myMessages,
+          {
+            id: 2,
+            imageUser: 'https://www.flaticon.com/svg/static/icons/svg/2922/2922506.svg',
+            firstName: 'Arthur',
+            text: state.myNewMessages,
+            time: 'Now',
+          }
+        ],
+        setTimeout: (state.updateScroll, 0)
+      }
+    case LISTEN_NEW_MY_MESSAGE:
+      return {
+        ...state,
+        myNewMessages: action.newMessage
+      }
     default:
       return state;
   }
