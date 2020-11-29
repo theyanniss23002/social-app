@@ -12,7 +12,6 @@ const UsersCard = (props) => {
 export default UsersCard
 
 const User = ({user}, props) => {
-  debugger
   return (
     <div className={style.card}>
       <span className={style.cardName}>{user.firstName + ' ' + user.lastName}</span>
