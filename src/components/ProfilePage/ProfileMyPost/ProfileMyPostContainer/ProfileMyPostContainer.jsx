@@ -3,7 +3,7 @@ import ProfileMyPost from '../ProfileMyPost'
 
 let mapStateToProps = (state) => {
   return {
-    profile: state.profile
+    profile: state.profilePage
   }
 }
 

@@ -3,7 +3,7 @@ import DialogsList from '../DialogsList'
 
 let mapStateToProps = (state) => {
   return {
-    dialogs: state.dialogs
+    dialogs: state.dialogsPage
 
   }
 }

@@ -6,8 +6,8 @@ import ProfileAddPost from "../ProfileAddPost";
 
 let mapStateToProps = (state) => {
   return {
-    profile: state.profile,
-    changePostItems: state.profile.changePostItems
+    profile: state.profilePage,
+    changePostItems: state.profilePage.changePostItems
   }
 }
 

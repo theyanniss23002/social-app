@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar';
 
 let mapStateToProps = (state) => {
   return {
-    sidebar: state.sidebar
+    sidebar: state.sidebarBlock
   }
 }
 

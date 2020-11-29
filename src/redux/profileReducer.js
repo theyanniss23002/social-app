@@ -41,7 +41,7 @@ const profileReducer = (state = initialState, action) => {
         changePostItems: action.newPost
       }
     default:
-      return state;
+      return state; 
   }
 }
 

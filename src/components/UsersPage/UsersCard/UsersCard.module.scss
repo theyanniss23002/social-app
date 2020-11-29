@@ -1,0 +1,98 @@
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 5px 1px 18px 1px rgba(0,0,0,0.33);
+  max-height: 350px;
+  height: 100vh;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  &Name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5E6184;
+  }
+  &Status {
+    font-size: 15px;
+    font-weight: 500;
+    color: #5E6184;
+    background: rgba(166, 57, 216, 0.2);
+    padding: 8px 30px;
+    border-radius: 50px;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    &::before {
+      margin-right: 7px;
+      content: '';
+      width: fit-content;
+      background: #A639D8;
+      padding: 3px;
+      border-radius: 5px;
+    }
+  }
+  &Location {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    &Country {
+      font-size: 20px;
+      font-weight: bold;
+      color: #5E6184;
+    }
+    &City {
+      font-size: 17px;
+      color: #5E6184;
+      padding-top: 7px;
+    }
+  }
+  &Circle {
+    position: absolute;
+    right: -70px;
+    bottom: -35px;
+    background: #5E6184;
+    border-radius: 50%;
+    padding: 25px;
+    &Image {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+  &Subscribe {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 95px;
+    padding: 30px 0;
+    border-radius: 0 50px 0 0;
+    margin-top: 20px;
+    float: right;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: #5E6184;
+    color: #fff;
+    transition: .2s;
+    font-weight: bold;
+    &:hover {
+      border-top: 1px solid #5E6184;
+      border-right: 1px solid #5E6184;
+      background: #fff;
+      color: #5E6184;
+      transition: .2s;
+    }
+    &:focus {
+      outline-offset: 0;
+      outline: none;
+    }
+    &:active {
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+  }
+}

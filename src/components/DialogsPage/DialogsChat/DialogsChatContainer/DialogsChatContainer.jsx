@@ -6,8 +6,8 @@ import {sendMyMessageActionCreator,
 
 let mapStateToProps = (state) => {
   return {
-    dialogs: state.dialogs,
-    myNewMessages: state.dialogs.myNewMessages,
+    dialogs: state.dialogsPage,
+    myNewMessages: state.dialogsPage.myNewMessages,
   }
 }
 

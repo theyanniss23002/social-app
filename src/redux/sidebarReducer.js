@@ -9,6 +9,10 @@ let initialState = {
       path: '/dialogs',
     },
     {
+      name: 'Users',
+      path: '/users',
+    },
+    {
       name: 'News',
       path: '/news',
     },
