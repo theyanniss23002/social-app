@@ -4,7 +4,7 @@ import style from './UsersCard.module.scss'
 const UsersCard = (props) => {
   return (
     props.users.map((user) => {
-      return <User key={user.id} user={user}/>
+      return <User key={user.id} user={user} props={props}/>
     })
   )
 }
@@ -12,6 +12,7 @@ const UsersCard = (props) => {
 export default UsersCard
 
 const User = ({user}, props) => {
+    const {unsubscribeUser, subscribeUser} = props;
   return (
     <div className={style.card}>
       <span className={style.cardName}>{user.firstName + ' ' + user.lastName}</span>
@@ -24,8 +25,8 @@ const User = ({user}, props) => {
         <img className={style.cardCircleImage} src={user.imageUser} alt="ImageUser"/>
       </div>
       {user.subscribed
-        ? <button onClick={() => { props.unsubscribeUser(user.id) }} className={style.cardSubscribe}>unsubcribe</button>
-        : <button onClick={() => { props.subscribeUser(user.id) }} className={style.cardSubscribe}>subcribe</button>
+        ? <button onClick={() => { unsubscribeUser(user.id) }} className={style.cardSubscribe}>unsubcribe</button>
+        : <button onClick={() => { subscribeUser(user.id) }} className={style.cardSubscribe}>subcribe</button>
       }
     </div>
   )
