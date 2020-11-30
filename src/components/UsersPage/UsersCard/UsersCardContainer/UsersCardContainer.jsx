@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import UsersCard from '../../UsersCard/UsersCard'
+import UsersCard from '../UsersCard'
 import {subscribeUserAC, unsubscribeUserAC, setUsersAC} from '../../../../redux/usersReducer'
 
 let mapStateToProps = (state) => {
