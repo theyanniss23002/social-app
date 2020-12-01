@@ -1,24 +1,15 @@
 import React from 'react'
-import style from './UsersCard.module.scss'
-import * as axios from 'axios'
-import defaultImage from '../../../assets/images/svg/profile-logo.svg'
+import style from "./UsersCard.module.scss";
+import defaultImage from "../../../assets/images/svg/profile-logo.svg";
 
-class UsersCard extends React.Component {
+const UsersCard = (props) => {
 
-  componentDidMount () {
-    axios.get('https://social-network.samuraijs.com/api/1.0/users')
-      .then(response => {
-        this.props.setUsers(response.data.items)
-      })
-  }
+  return (
+    props.users.map((user) => {
+      return <Card key={user.id} user={user} props={props}/>
+    })
+  )
 
-  render() {
-    return (
-      this.props.users.map((user) => {
-        return <Card key={user.id} user={user} props={this.props}/>
-      })
-    )
-  }
 }
 
 export default UsersCard
@@ -48,3 +39,5 @@ const Card = ({user, props}) => {
     </div>
   )
 }
+
+
