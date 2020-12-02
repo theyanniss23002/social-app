@@ -1,0 +1,36 @@
+.loader {
+  display: flex;
+  position: absolute;
+  height: calc(100vh - 250px);
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  &Wrap {
+    height: 150px;
+    width: 325px;
+    &Circle {
+      animation: move 4s linear infinite;
+    }
+    &Right {
+      animation-direction: reverse;
+    }
+  }
+  &Title {
+    color: #A639D8;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 25px;
+  }
+}
+
+@keyframes move {
+  25% {
+    transform: translateX(-32px);
+  }
+  75% {
+    transform: translateX(32px);
+  }
+}

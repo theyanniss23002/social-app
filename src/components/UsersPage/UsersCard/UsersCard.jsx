@@ -39,5 +39,3 @@ const Card = ({user, props}) => {
     </div>
   )
 }
-
-

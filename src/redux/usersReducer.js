@@ -3,12 +3,14 @@ const UNSUBSCRIBE_USER = 'UNSUBSCRIBE_USER'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+const SWITCHER_IS_LOADING = 'SWITCHER_IS_LOADING'
 
 let initialState = {
   users: [],
   pageSize: 6,
   totalUsersCount: 0,
   currentPage: 1,
+  isLoading: false,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -48,15 +50,21 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         totalUsersCount: action.totalUsersCount
       }
+    case SWITCHER_IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading
+      }
     default:
       return state
   }
 }
 
-export const subscribeUserAC = (userId) => ({type: SUBSCRIBE_USER, userId})
-export const unsubscribeUserAC = (userId) => ({type: UNSUBSCRIBE_USER, userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const subscribeUser = (userId) => ({type: SUBSCRIBE_USER, userId})
+export const unsubscribeUser = (userId) => ({type: UNSUBSCRIBE_USER, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const switcherIsLoading = (isLoading) => ({type: SWITCHER_IS_LOADING, isLoading})
 
 export default usersReducer
