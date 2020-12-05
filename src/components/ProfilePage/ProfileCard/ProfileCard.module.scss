@@ -13,17 +13,19 @@
       font-size: 20px;
       color: #5E6184;
     }
-    &Birthday {
+    &About {
       font-size: 16px;
       color: #5E6184;
     }
-    &City {
-      font-size: 16px;
-      color: #5E6184;
-    }
-    &Site {
-      font-size: 16px;
-      color: #5E6184;
+    &Wrap {
+      padding-top: 5px;
+      display: flex;
+      flex-direction: column;
+      &Contacts {
+        font-size: 16px;
+        color: #5E6184;
+        font-weight: bold;
+      }
     }
     & > span {
       &:not(:first-child) {

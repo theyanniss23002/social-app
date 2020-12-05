@@ -14,8 +14,8 @@ const Loader = () => {
       </svg>
       <svg className={style.loaderWrap}>
         <g filter="url(#goo)">
-          <circle className={style.loaderWrapCircle} fill="#A639D8" r="24" cx="160" cy="90"/>
-          <circle className={`${style.loaderWrapCircle} ${style.loaderWrapRight}`} fill="#A639D8" r="24" cx="160" cy="90"/>
+          <circle className={style.loaderWrapCircle} fill="#7A68EE" r="24" cx="160" cy="90"/>
+          <circle className={`${style.loaderWrapCircle} ${style.loaderWrapRight}`} fill="#7A68EE" r="24" cx="160" cy="90"/>
         </g>
       </svg>
       <span className={style.loaderTitle}>View is loading</span>

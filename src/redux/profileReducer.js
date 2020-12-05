@@ -1,8 +1,9 @@
 const ADD_POST = 'ADD_POST';
 const LISTEN_NEW_POST_CHANGE = 'LISTEN_NEW_POST_CHANGE';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
-  posts:  [
+  posts: [
     {
       id: 1,
       user: 'Arthur',
@@ -17,6 +18,7 @@ let initialState = {
     }
   ],
   changePostItems: '',
+  profile: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -40,22 +42,18 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         changePostItems: action.newPost
       }
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      }
     default:
-      return state; 
+      return state;
   }
 }
 
-export const addPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  }
-}
-
-export const listenNewPostChangeActionCreator = (changeItem) => {
-  return {
-    type: LISTEN_NEW_POST_CHANGE,
-    newPost: changeItem,
-  }
-}
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const listenNewPostChangeActionCreator = (changeItem) => ({type: LISTEN_NEW_POST_CHANGE, newPost: changeItem})
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile })
 
 export default profileReducer;

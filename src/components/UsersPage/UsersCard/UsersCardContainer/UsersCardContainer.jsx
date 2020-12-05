@@ -1,5 +1,4 @@
 import React from "react"
-import * as axios from "axios"
 import {connect} from "react-redux"
 import UsersCard from "../UsersCard"
 import Loader from "../../../SharedComponents/Loader/Loader"
@@ -10,17 +9,17 @@ import {
   setTotalUsersCount,
   switcherIsLoading
 } from '../../../../redux/usersReducer'
+import {getRequestUsers} from "../../../../rest/rest"
 
 class UsersCardComponent extends React.Component {
 
   componentDidMount() {
     this.props.switcherIsLoading(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      .then(response => {
-        this.props.switcherIsLoading(false)
-        this.props.setUsers(response.data.items)
-        this.props.setTotalUsersCount(response.data.totalCount)
-      })
+    getRequestUsers(this.props.currentPage, this.props.pageSize).then(data => {
+      this.props.switcherIsLoading(false)
+      this.props.setUsers(data.items)
+      this.props.setTotalUsersCount(data.totalCount)
+    })
   }
 
   render() {

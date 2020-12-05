@@ -1,6 +1,8 @@
 import React from 'react'
 import style from "./UsersCard.module.scss";
 import defaultImage from "../../../assets/images/svg/profile-logo.svg";
+import {NavLink} from "react-router-dom";
+import {deleteRequestUnsubscribeUser, postRequestSubscribeUser} from '../../../rest/rest'
 
 const UsersCard = (props) => {
 
@@ -18,7 +20,9 @@ const Card = ({user, props}) => {
   const {unsubscribeUser, subscribeUser} = props;
   return (
     <div className={style.card}>
-      <span className={style.cardName}>{user.name}</span>
+      <NavLink to={'/profile/' + user.id}>
+        <span className={style.cardName}>{user.name}</span>
+      </NavLink>
       <span className={style.cardStatus}>{user.status}</span>
       <div className={style.cardLocation}>
         {/*<span className={style.cardLocationCountry}>{user.location.country}</span>*/}
@@ -28,12 +32,20 @@ const Card = ({user, props}) => {
         <img className={style.cardCircleImage} src={user.photos.small != null ? user.photos.small : defaultImage}
              alt="ImageUser"/>
       </div>
-      {user.subscribed
+      {user.followed
         ? <button onClick={() => {
-          unsubscribeUser(user.id)
+          deleteRequestUnsubscribeUser(user).then(data => {
+            if (data.resultCode === 0) {
+              unsubscribeUser(user.id)
+            }
+          })
         }} className={style.cardSubscribe}>unsubcribe</button>
         : <button onClick={() => {
-          subscribeUser(user.id)
+          postRequestSubscribeUser(user).then(data => {
+            if (data.resultCode === 0) {
+              subscribeUser(user.id)
+            }
+          })
         }} className={style.cardSubscribe}>subcribe</button>
       }
     </div>

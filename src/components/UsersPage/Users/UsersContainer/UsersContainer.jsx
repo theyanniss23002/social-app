@@ -1,19 +1,18 @@
 import React from "react";
-import * as axios from "axios";
 import Users from "../Users";
 import {connect} from 'react-redux'
 import {setUsers, setCurrentPage, switcherIsLoading} from '../../../../redux/usersReducer'
+import {getRequestUsers} from "../../../../rest/rest";
 
 class UsersComponent extends React.Component {
 
   onSetCurrentPage = (pageNumber) => {
     this.props.switcherIsLoading(true)
     this.props.setCurrentPage(pageNumber)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-      .then(response => {
-        this.props.switcherIsLoading(false)
-        this.props.setUsers(response.data.items)
-      })
+    getRequestUsers(pageNumber, this.props.pageSize).then(data => {
+      this.props.switcherIsLoading(false)
+      this.props.setUsers(data.items)
+    })
   }
 
 

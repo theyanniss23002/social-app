@@ -1,0 +1,36 @@
+.account {
+  display: flex;
+  &Login {
+    background: #1C303D;
+    color: #fff;
+    max-width: 120px;
+    width: 120px;
+    padding: 15px 0;
+    border-radius: 9px 3px 3px 9px;
+    margin-right: 2px;
+    border: 1px solid transparent;
+    transition: .2s;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      background: #245C81;
+      transition: .2s;
+    }
+  }
+  &Registration {
+    background: #1C303D;
+    color: #fff;
+    max-width: 120px;
+    width: 120px;
+    padding: 15px 0;
+    border-radius: 3px 9px 9px 3px;
+    border: 1px solid transparent;
+    transition: .2s;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      background: #245C81;
+      transition: .2s;
+    }
+  }
+}
