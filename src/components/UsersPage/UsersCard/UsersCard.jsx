@@ -2,7 +2,7 @@ import React from 'react'
 import style from "./UsersCard.module.scss";
 import defaultImage from "../../../assets/images/svg/profile-logo.svg";
 import {NavLink} from "react-router-dom";
-import {deleteRequestUnsubscribeUser, postRequestSubscribeUser} from '../../../rest/rest'
+import {followRest} from '../../../rest/rest'
 
 const UsersCard = (props) => {
 
@@ -34,14 +34,14 @@ const Card = ({user, props}) => {
       </div>
       {user.followed
         ? <button onClick={() => {
-          deleteRequestUnsubscribeUser(user).then(data => {
+          followRest.deleteRequestUnsubscribeUser(user).then(data => {
             if (data.resultCode === 0) {
               unsubscribeUser(user.id)
             }
           })
         }} className={style.cardSubscribe}>unsubcribe</button>
         : <button onClick={() => {
-          postRequestSubscribeUser(user).then(data => {
+          followRest.postRequestSubscribeUser(user).then(data => {
             if (data.resultCode === 0) {
               subscribeUser(user.id)
             }

@@ -2,14 +2,14 @@ import React from "react";
 import Users from "../Users";
 import {connect} from 'react-redux'
 import {setUsers, setCurrentPage, switcherIsLoading} from '../../../../redux/usersReducer'
-import {getRequestUsers} from "../../../../rest/rest";
+import {usersRest} from "../../../../rest/rest";
 
 class UsersComponent extends React.Component {
 
   onSetCurrentPage = (pageNumber) => {
     this.props.switcherIsLoading(true)
     this.props.setCurrentPage(pageNumber)
-    getRequestUsers(pageNumber, this.props.pageSize).then(data => {
+    usersRest.getRequestUsers(pageNumber, this.props.pageSize).then(data => {
       this.props.switcherIsLoading(false)
       this.props.setUsers(data.items)
     })

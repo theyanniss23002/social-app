@@ -9,13 +9,13 @@ import {
   setTotalUsersCount,
   switcherIsLoading
 } from '../../../../redux/usersReducer'
-import {getRequestUsers} from "../../../../rest/rest"
+import {usersRest} from '../../../../rest/rest'
 
 class UsersCardComponent extends React.Component {
 
   componentDidMount() {
     this.props.switcherIsLoading(true)
-    getRequestUsers(this.props.currentPage, this.props.pageSize).then(data => {
+    usersRest.getRequestUsers(this.props.currentPage, this.props.pageSize).then(data => {
       this.props.switcherIsLoading(false)
       this.props.setUsers(data.items)
       this.props.setTotalUsersCount(data.totalCount)
