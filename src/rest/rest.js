@@ -16,16 +16,27 @@ export const usersRest = {
 }
 
 export const followRest = {
-  postRequestSubscribeUser(user) {
-    return instance.post(`follow/${user.id}`)
+  postRequestSubscribeUser(userId) {
+    return instance.post(`follow/${userId}`)
       .then(response => {
         return response.data
       })
   },
-  deleteRequestUnsubscribeUser(user) {
-    return instance.delete(`follow/${user.id}`)
+  deleteRequestUnsubscribeUser(userId) {
+    return instance.delete(`follow/${userId}`)
       .then(response => {
         return response.data
       })
   }
 }
+
+export const setProfile = {
+  setUserProfile(userId) {
+    return instance.get(`profile/${userId}`)
+  }
+}
+
+// axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+//   .then(response => {
+//     this.props.setUserProfile(response.data)
+//   })

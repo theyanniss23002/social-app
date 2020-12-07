@@ -2,22 +2,19 @@ import React from 'react'
 import style from "./UsersCard.module.scss";
 import defaultImage from "../../../assets/images/svg/profile-logo.svg";
 import {NavLink} from "react-router-dom";
-import {followRest} from '../../../rest/rest'
 
 const UsersCard = (props) => {
-
   return (
     props.users.map((user) => {
       return <Card key={user.id} user={user} props={props}/>
     })
   )
-
 }
 
 export default UsersCard
 
 const Card = ({user, props}) => {
-  const {unsubscribeUser, subscribeUser} = props;
+  const {changeButtonState, subscription, unsubscription} = props;
   return (
     <div className={style.card}>
       <NavLink to={'/profile/' + user.id}>
@@ -33,20 +30,16 @@ const Card = ({user, props}) => {
              alt="ImageUser"/>
       </div>
       {user.followed
-        ? <button onClick={() => {
-          followRest.deleteRequestUnsubscribeUser(user).then(data => {
-            if (data.resultCode === 0) {
-              unsubscribeUser(user.id)
-            }
-          })
-        }} className={style.cardSubscribe}>unsubcribe</button>
-        : <button onClick={() => {
-          followRest.postRequestSubscribeUser(user).then(data => {
-            if (data.resultCode === 0) {
-              subscribeUser(user.id)
-            }
-          })
-        }} className={style.cardSubscribe}>subcribe</button>
+        ? <button disabled={changeButtonState.some(id => id === user.id)}
+                  onClick={() => {
+                    unsubscription(user.id)
+                  }}
+                  className={style.cardSubscribe}>unsubcribe</button>
+        : <button disabled={changeButtonState.some(id => id === user.id)}
+                  onClick={() => {
+                    subscription(user.id)
+                  }}
+                  className={style.cardSubscribe}>subcribe</button>
       }
     </div>
   )

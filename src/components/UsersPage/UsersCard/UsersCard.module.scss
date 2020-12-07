@@ -83,9 +83,11 @@
     transition: .2s;
     font-weight: bold;
     &:hover {
-      background: #F2F2F5;
-      color: #5E6184;
+      background: #3e3c82;
       transition: .2s;
+    }
+    &:disabled {
+      opacity: 0.5;
     }
     &:focus {
       outline-offset: 0;

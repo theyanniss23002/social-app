@@ -1,20 +1,16 @@
 import React from "react";
 import Users from "../Users";
 import {connect} from 'react-redux'
-import {setUsers, setCurrentPage, switcherIsLoading} from '../../../../redux/usersReducer'
-import {usersRest} from "../../../../rest/rest";
+import {
+  setCurrentPage,
+  getUsersThunkCreator
+} from '../../../../redux/usersReducer'
 
 class UsersComponent extends React.Component {
 
   onSetCurrentPage = (pageNumber) => {
-    this.props.switcherIsLoading(true)
-    this.props.setCurrentPage(pageNumber)
-    usersRest.getRequestUsers(pageNumber, this.props.pageSize).then(data => {
-      this.props.switcherIsLoading(false)
-      this.props.setUsers(data.items)
-    })
+    this.props.getUsers(pageNumber, this.props.pageSize)
   }
-
 
   render() {
     return (
@@ -38,9 +34,8 @@ let mapStateToProps = (state) => {
 }
 
 const UsersContainer = connect(mapStateToProps, {
-  setUsers,
   setCurrentPage,
-  switcherIsLoading,
+  getUsers: getUsersThunkCreator
 })(UsersComponent)
 
 export default UsersContainer
