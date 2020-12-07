@@ -36,7 +36,8 @@ export const setProfile = {
   }
 }
 
-// axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-//   .then(response => {
-//     this.props.setUserProfile(response.data)
-//   })
+export const setAuth = {
+  setAuthUserData() {
+    return instance.get(`auth/me`)
+  }
+}
