@@ -1,4 +1,4 @@
-import {setAuth} from "../rest/rest";
+import {authAPI} from "../rest/rest";
 
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA'
 
@@ -27,7 +27,7 @@ export const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_D
 
 export const setAuthUserThunkCreator = () => {
   return (dispatch) => {
-    setAuth.setAuthUserData()
+    authAPI.setAuthUserData()
       .then(response => {
         if (response.data.resultCode === 0) {
           let {id, email, login} = (response.data.data)

@@ -1,4 +1,4 @@
-import {followRest, usersRest} from "../rest/rest";
+import {followAPI, userAPI} from "../rest/rest";
 
 const SUBSCRIBE_USER = 'SUBSCRIBE_USER'
 const UNSUBSCRIBE_USER = 'UNSUBSCRIBE_USER'
@@ -82,7 +82,7 @@ export const toggleChangeButtonState = (isLoading, userId) => ({type: TOGGLE_CHA
 export const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(switcherIsLoading(true))
-    usersRest.getRequestUsers(currentPage, pageSize).then(data => {
+    userAPI.getRequestUsers(currentPage, pageSize).then(data => {
       dispatch(switcherIsLoading(false))
       dispatch(setUsers(data.items))
       dispatch(setTotalUsersCount(data.totalCount))
@@ -93,7 +93,7 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
 export const subscriptionThunkCreator = (userId) => {
   return (dispatch) => {
     dispatch(toggleChangeButtonState(true, userId))
-    followRest.postRequestSubscribeUser(userId).then(data => {
+    followAPI.postRequestSubscribeUser(userId).then(data => {
       if (data.resultCode === 0) {
         dispatch(subscribeUser(userId))
       }
@@ -105,7 +105,7 @@ export const subscriptionThunkCreator = (userId) => {
 export const unsubscriptionThunkCreator = (userId) => {
   return (dispatch) => {
     dispatch(toggleChangeButtonState(true, userId))
-    followRest.deleteRequestUnsubscribeUser(userId).then(data => {
+    followAPI.deleteRequestUnsubscribeUser(userId).then(data => {
       if (data.resultCode === 0) {
         dispatch(unsubscribeUser(userId))
       }

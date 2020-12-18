@@ -4,6 +4,7 @@ import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfileMyPostContainer from '../ProfileMyPost/ProfileMyPostContainer/ProfileMyPostContainer'
 import ProfileAddPostContainer from "../ProfileAddPost/ProfileAddPostContainer/ProfileAddPostContainer";
 import Loader from "../../SharedComponents/Loader/Loader";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 const Profile = (props) => {
 
@@ -14,6 +15,7 @@ const Profile = (props) => {
   return (
     <div className={style.columnContent}>
       <ProfileCard profile={props.profile}/>
+      <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
       <ProfileAddPostContainer/>
       <ProfileMyPostContainer/>
     </div>
